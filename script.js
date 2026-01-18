@@ -239,30 +239,37 @@ function initScrollAnimations() {
  * ============================================
  * LOVE QUESTION INTERACTION
  * YES button shows success, NO button runs away
+ * (Logic copied from index2.html)
  * ============================================
  */
 function initLoveQuestion() {
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
     const successMsg = document.getElementById('loveSuccess');
-    const questionButtons = document.querySelector('.question-buttons');
-    const section = document.querySelector('.question-section');
+    const container = document.querySelector('.question-section');
 
-    if (!yesBtn || !noBtn || !successMsg || !section) return;
+    if (!yesBtn || !noBtn || !successMsg || !container) return;
 
-    // Set up section for absolute positioning
-    section.style.position = 'relative';
+    // Configuration - same as index2.html
+    const SAFE_DISTANCE = 120;
+    const MIN_ESCAPE_DISTANCE = 160;
+    const EDGE_PADDING = 10;
 
-    // Apply smooth transition to NO button
-    noBtn.style.transition = 'left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    // Position NO button next to YES button initially
+    const yesRect = yesBtn.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
 
-    // Distance threshold - button will run away when mouse is within this distance
-    const escapeDistance = 120;
+    // Place NO button to the right of YES button with gap
+    let btnX = (yesRect.right - containerRect.left) + 16;
+    let btnY = yesRect.top - containerRect.top;
+
+    noBtn.style.left = btnX + "px";
+    noBtn.style.top = btnY + "px";
 
     // YES button click handler
     yesBtn.addEventListener('click', function() {
-        // Hide buttons
-        questionButtons.style.display = 'none';
+        // Hide NO button
+        noBtn.style.display = 'none';
 
         // Show success message
         successMsg.classList.add('show');
@@ -271,138 +278,78 @@ function initLoveQuestion() {
         createConfetti();
     });
 
-    // Track mouse movement across the entire section
-    section.addEventListener('mousemove', function(e) {
-        const sectionRect = section.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
-
-        // Get mouse position relative to section
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-
-        // Get button center position
-        const btnCenterX = btnRect.left + btnRect.width / 2;
-        const btnCenterY = btnRect.top + btnRect.height / 2;
-
-        // Calculate distance between mouse and button center
-        const distance = Math.sqrt(
-            Math.pow(mouseX - btnCenterX, 2) +
-            Math.pow(mouseY - btnCenterY, 2)
-        );
-
-        // If mouse is too close, move the button away
-        if (distance < escapeDistance) {
-            moveNoButton(mouseX, mouseY, sectionRect, btnRect);
-        }
+    // YES button click handler
+    noBtn.addEventListener('click', function() {
+        // Hide NO button
+        noBtn.style.display = 'none';
     });
 
-    // Handle touch events for mobile
-    section.addEventListener('touchmove', function(e) {
-        const touch = e.touches[0];
-        const sectionRect = section.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
+    // Random escape position - exact copy from index2.html
+    function randomEscapePosition(mouseX, mouseY) {
+        const maxX = container.clientWidth - noBtn.offsetWidth - EDGE_PADDING;
+        const maxY = container.clientHeight - noBtn.offsetHeight - EDGE_PADDING;
+        const minX = EDGE_PADDING;
+        const minY = EDGE_PADDING;
 
-        const touchX = touch.clientX;
-        const touchY = touch.clientY;
+        let x, y, attempts = 0;
 
-        const btnCenterX = btnRect.left + btnRect.width / 2;
-        const btnCenterY = btnRect.top + btnRect.height / 2;
-
-        const distance = Math.sqrt(
-            Math.pow(touchX - btnCenterX, 2) +
-            Math.pow(touchY - btnCenterY, 2)
+        do {
+            x = Math.random() * (maxX - minX) + minX;
+            y = Math.random() * (maxY - minY) + minY;
+            attempts++;
+        } while (
+            Math.hypot(
+                x + noBtn.offsetWidth / 2 - mouseX,
+                y + noBtn.offsetHeight / 2 - mouseY
+            ) < MIN_ESCAPE_DISTANCE &&
+            attempts < 20
         );
 
-        if (distance < escapeDistance) {
-            moveNoButton(touchX, touchY, sectionRect, btnRect);
-        }
-    }, { passive: true });
-
-    // Also handle direct hover/touch on the button
-    noBtn.addEventListener('mouseenter', function(e) {
-        const sectionRect = section.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
-        moveNoButton(e.clientX, e.clientY, sectionRect, btnRect);
-    });
-
-    noBtn.addEventListener('touchstart', function(e) {
-        const touch = e.touches[0];
-        const sectionRect = section.getBoundingClientRect();
-        const btnRect = noBtn.getBoundingClientRect();
-        moveNoButton(touch.clientX, touch.clientY, sectionRect, btnRect);
-    }, { passive: true });
-
-    function moveNoButton(mouseX, mouseY, sectionRect, btnRect) {
-        const padding = 30;
-        const maxX = sectionRect.width - btnRect.width - padding;
-        const maxY = sectionRect.height - btnRect.height - padding;
-
-        // Calculate direction away from mouse
-        const btnCenterX = btnRect.left + btnRect.width / 2;
-        const btnCenterY = btnRect.top + btnRect.height / 2;
-
-        // Vector from mouse to button
-        let dirX = btnCenterX - mouseX;
-        let dirY = btnCenterY - mouseY;
-
-        // Normalize the direction
-        const length = Math.sqrt(dirX * dirX + dirY * dirY);
-        if (length > 0) {
-            dirX /= length;
-            dirY /= length;
-        }
-
-        // Move button in the opposite direction of mouse (away from it)
-        // Add some randomness to make it more playful
-        const moveDistance = 150 + Math.random() * 100;
-        let newX = (btnRect.left - sectionRect.left) + dirX * moveDistance;
-        let newY = (btnRect.top - sectionRect.top) + dirY * moveDistance;
-
-        // Add slight randomness to angle
-        const randomAngle = (Math.random() - 0.5) * 0.8;
-        const cos = Math.cos(randomAngle);
-        const sin = Math.sin(randomAngle);
-        const centeredX = newX - sectionRect.width / 2;
-        const centeredY = newY - sectionRect.height / 2;
-        newX = centeredX * cos - centeredY * sin + sectionRect.width / 2;
-        newY = centeredX * sin + centeredY * cos + sectionRect.height / 2;
-
-        // Keep button within bounds
-        newX = Math.max(padding, Math.min(maxX, newX));
-        newY = Math.max(padding, Math.min(maxY, newY));
-
-        // If button would still be near mouse, pick a random far position
-        const newBtnCenterX = sectionRect.left + newX + btnRect.width / 2;
-        const newBtnCenterY = sectionRect.top + newY + btnRect.height / 2;
-        const newDistance = Math.sqrt(
-            Math.pow(mouseX - newBtnCenterX, 2) +
-            Math.pow(mouseY - newBtnCenterY, 2)
-        );
-
-        if (newDistance < escapeDistance) {
-            // Pick a random position far from mouse
-            let attempts = 0;
-            while (attempts < 10) {
-                newX = Math.random() * maxX + padding;
-                newY = Math.random() * maxY + padding;
-
-                const testCenterX = sectionRect.left + newX + btnRect.width / 2;
-                const testCenterY = sectionRect.top + newY + btnRect.height / 2;
-                const testDistance = Math.sqrt(
-                    Math.pow(mouseX - testCenterX, 2) +
-                    Math.pow(mouseY - testCenterY, 2)
-                );
-
-                if (testDistance >= escapeDistance * 1.5) break;
-                attempts++;
-            }
-        }
-
-        // Apply new position
-        noBtn.style.position = 'absolute';
-        noBtn.style.left = newX + 'px';
-        noBtn.style.top = newY + 'px';
+        return { x, y };
     }
+
+    // Mousemove handler - exact copy from index2.html
+    container.addEventListener("mousemove", (e) => {
+        const rect = container.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        const centerX = btnX + noBtn.offsetWidth / 2;
+        const centerY = btnY + noBtn.offsetHeight / 2;
+
+        const dist = Math.hypot(centerX - mouseX, centerY - mouseY);
+
+        if (dist < SAFE_DISTANCE) {
+            const pos = randomEscapePosition(mouseX, mouseY);
+            btnX = pos.x;
+            btnY = pos.y;
+
+            noBtn.style.left = btnX + "px";
+            noBtn.style.top = btnY + "px";
+        }
+    });
+
+    // Touch support for mobile
+    container.addEventListener("touchmove", (e) => {
+        const touch = e.touches[0];
+        const rect = container.getBoundingClientRect();
+        const touchX = touch.clientX - rect.left;
+        const touchY = touch.clientY - rect.top;
+
+        const centerX = btnX + noBtn.offsetWidth / 2;
+        const centerY = btnY + noBtn.offsetHeight / 2;
+
+        const dist = Math.hypot(centerX - touchX, centerY - touchY);
+
+        if (dist < SAFE_DISTANCE) {
+            const pos = randomEscapePosition(touchX, touchY);
+            btnX = pos.x;
+            btnY = pos.y;
+
+            noBtn.style.left = btnX + "px";
+            noBtn.style.top = btnY + "px";
+        }
+    }, { passive: true });
 }
 
 /**

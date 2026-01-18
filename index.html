@@ -219,13 +219,10 @@
     <!-- SECTION 6: Fun Interaction - Love Question -->
     <!-- ============================================ -->
     <section id="question" class="question-section">
-        <div class="question-container fade-in">
+        <!-- Centered content -->
+        <div class="question-content fade-in">
             <h2 class="question-text">Do you love me? <br><span>🥺👉👈</span></h2>
-
-            <div class="question-buttons">
-                <button class="btn-yes" id="yesBtn">YES ❤️</button>
-                <button class="btn-no" id="noBtn">NO 💔</button>
-            </div>
+            <button class="btn-yes" id="yesBtn" style="margin-right:150px">YES ❤️</button>
 
             <!-- Success message (hidden by default) -->
             <div class="love-success" id="loveSuccess">
@@ -234,6 +231,9 @@
                 <div class="confetti-container" id="confetti"></div>
             </div>
         </div>
+
+        <!-- NO button - absolute positioned, will escape -->
+        <button class="btn-no" id="noBtn">NO 💔</button>
     </section>
 
     <!-- ============================================ -->

@@ -103,7 +103,7 @@ html {
 
 .fade-in.visible {
     opacity: 1;
-    transform: translateY(0);
+    /*transform: translateY(0);*/
 }
 
 /* Section title styling */
@@ -583,17 +583,20 @@ html {
    SECTION 6: FUN INTERACTION - LOVE QUESTION
    ============================================ */
 .question-section {
-    padding: var(--spacing-xl) var(--spacing-md);
     background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-peach) 100%);
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
 }
 
-.question-container {
+.question-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    max-width: 500px;
+    z-index: 5;
 }
 
 .question-text {
@@ -630,8 +633,9 @@ html {
     box-shadow: var(--shadow-glow);
 }
 
-/* NO button */
+/* NO button - absolute positioned */
 .btn-no {
+    position: absolute;
     font-family: var(--font-body);
     font-size: 1.3rem;
     font-weight: 600;
@@ -641,8 +645,10 @@ html {
     border: 2px solid var(--color-text-light);
     border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: all var(--transition-fast);
-    position: relative;
+    box-shadow: var(--shadow-soft);
+    white-space: nowrap;
+    /* slower, smoother movement - same as index2.html */
+    transition: left 0.45s ease-out, top 0.45s ease-out;
 }
 
 /* Success message */
@@ -1233,7 +1239,6 @@ html {
     .timeline-icon {
         width: 45px;
         height: 45px;
-        font-size: 1.2rem;
     }
 
     .timeline-content {
