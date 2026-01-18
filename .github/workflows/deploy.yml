@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           protocol: ftps
           port: 21
-          server-dir: letter
+          server-dir: letter/
           state-name: .ftp-deploy-sync-state.json
           dangerous-clean-slate: false
           exclude: |
