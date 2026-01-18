@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================ -->
+    <!-- SECTION 1: Hero Section - Birthday Opening -->
+    <!-- ============================================ -->
+    <section id="hero" class="hero-section">
+        <!-- Floating hearts container -->
+        <div class="floating-hearts" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Happy Birthday, My Love</h1>
+            <p class="hero-subtitle">Today is the day the world became more beautiful because you were born</p>
+            <button class="scroll-btn" onclick="smoothScrollTo('letter')">
+                Scroll down <span class="heart-icon">💕</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 2: Handwritten Letter Section -->
+    <!-- ============================================ -->
+    <section id="letter" class="letter-section">
+        <div class="letter-container">
+            <div class="letter-paper">
+                <p class="letter-date">On your special day...</p>
+
+                <p class="letter-greeting">My Dearest Love,</p>
+
+                <p class="letter-body">
+                    As I write this letter, my heart overflows with gratitude for having you in my life.
+                    Every moment with you feels like a beautiful dream I never want to wake up from.
+                </p>
+
+                <p class="letter-body">
+                    You are the sunshine that brightens my darkest days, the melody that makes my heart sing,
+                    and the reason I believe in magic. Your smile alone can turn any ordinary day into something extraordinary.
+                </p>
+
+                <p class="letter-body">
+                    On this special day, I want you to know how incredibly blessed I feel to call you mine.
+                    You deserve all the happiness in the world, and I promise to spend every day trying to give you just that.
+                </p>
+
+                <p class="letter-body">
+                    Happy Birthday, my beautiful soul. May this year bring you endless joy,
+                    laughter, and all the love your heart can hold.
+                </p>
+
+                <p class="letter-closing">
+                    Forever and always yours,
+                    <br>
+                    <span class="letter-signature">Your Love ❤️</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 3: Memory Lane - Photo Carousel -->
+    <!-- ============================================ -->
+    <section id="memories" class="memories-section">
+        <h2 class="section-title fade-in">Our Memories Together <span>💞</span></h2>
+
+        <div class="carousel-container">
+            <!-- Previous button -->
+            <button class="carousel-btn carousel-btn-prev" aria-label="Previous photo">
+                <span>&#10094;</span>
+            </button>
+
+            <!-- Carousel track -->
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="images/photo1.jpg" alt="Our memory 1">
+                        <p class="slide-caption">Our first adventure together</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo2.jpg" alt="Our memory 2">
+                        <p class="slide-caption">That perfect sunset we watched</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo3.jpg" alt="Our memory 3">
+                        <p class="slide-caption">Laughing until we cried</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo4.jpg" alt="Our memory 4">
+                        <p class="slide-caption">Making memories everywhere</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/photo5.jpg" alt="Our memory 5">
+                        <p class="slide-caption">Every moment is precious with you</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next button -->
+            <button class="carousel-btn carousel-btn-next" aria-label="Next photo">
+                <span>&#10095;</span>
+            </button>
+        </div>
+
+        <!-- Dots indicator -->
+        <div class="carousel-dots"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 4: Timeline / Love Story Section -->
+    <!-- ============================================ -->
+    <section id="timeline" class="timeline-section">
+        <h2 class="section-title fade-in">Our Love Story <span>💌</span></h2>
+
+        <div class="timeline-container">
+            <!-- Timeline item 1 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-icon">💫</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">The Beginning</span>
+                    <h3>First Time We Met</h3>
+                    <p>The moment our eyes met, I knew my life was about to change forever. Little did I know, you would become my everything.</p>
+                </div>
+            </div>
+
+            <!-- Timeline item 2 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-icon">🌹</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">A Special Day</span>
+                    <h3>Our First Date</h3>
+                    <p>Nervous butterflies, shy smiles, and the beginning of something magical. That day, I fell for you a little more.</p>
+                </div>
+            </div>
+
+            <!-- Timeline item 3 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-icon">✈️</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Adventures Await</span>
+                    <h3>Our First Trip Together</h3>
+                    <p>Exploring new places with you made me realize - home isn't a place, it's wherever you are.</p>
+                </div>
+            </div>
+
+            <!-- Timeline item 4 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-icon">🎂</div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Today</span>
+                    <h3>Your Birthday</h3>
+                    <p>Celebrating the day the universe gifted me the most precious person. Happy Birthday, my love!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 5: Reasons I Love You Section -->
+    <!-- ============================================ -->
+    <section id="reasons" class="reasons-section">
+        <h2 class="section-title fade-in">Reasons I Love You <span>💖</span></h2>
+
+        <div class="reasons-grid">
+            <div class="reason-card fade-in">
+                <span class="reason-icon">😊</span>
+                <p>Your smile that lights up my entire world</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">💪</span>
+                <p>Your strength and determination inspire me daily</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🤗</span>
+                <p>The way you make me feel safe and loved</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">😂</span>
+                <p>Your infectious laughter that I can't get enough of</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">💭</span>
+                <p>How you understand me without words</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🌟</span>
+                <p>Your kindness that touches everyone around you</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">🎨</span>
+                <p>The unique way you see the world</p>
+            </div>
+
+            <div class="reason-card fade-in">
+                <span class="reason-icon">💝</span>
+                <p>Simply because you are you - perfectly imperfect</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 6: Fun Interaction - Love Question -->
+    <!-- ============================================ -->
+    <section id="question" class="question-section">
+        <div class="question-container fade-in">
+            <h2 class="question-text">Do you love me? <br><span>🥺👉👈</span></h2>
+
+            <div class="question-buttons">
+                <button class="btn-yes" id="yesBtn">YES ❤️</button>
+                <button class="btn-no" id="noBtn">NO 💔</button>
+            </div>
+
+            <!-- Success message (hidden by default) -->
+            <div class="love-success" id="loveSuccess">
+                <h3>I knew it! 🥰</h3>
+                <p>I love you too, more than words can ever express!</p>
+                <div class="confetti-container" id="confetti"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 7: Love Meter -->
+    <!-- ============================================ -->
+    <section id="love-meter" class="love-meter-section">
+        <div class="love-meter-container fade-in">
+            <h2 class="love-meter-title">Mức độ bé Uyên yêu anh hôm nay là bao nhiêu? <span>💕</span></h2>
+
+            <div class="meter-wrapper">
+                <!-- Percentage display -->
+                <div class="meter-percentage" id="meterPercentage">50%</div>
+
+                <!-- Progress bar -->
+                <div class="meter-bar">
+                    <div class="meter-fill" id="meterFill"></div>
+                    <div class="meter-sparkles" id="meterSparkles"></div>
+                </div>
+
+                <!-- Slider -->
+                <input type="range" class="meter-slider" id="meterSlider" min="0" max="100" value="50">
+            </div>
+
+            <!-- Result message (hidden by default) -->
+            <p class="meter-result" id="meterResult">Ơ… hình như lúc nào cũng là 100% thì phải 😳</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 8: Good Boyfriend Checklist -->
+    <!-- ============================================ -->
+    <section id="checklist" class="checklist-section">
+        <div class="checklist-container fade-in">
+            <h2 class="checklist-title">Checklist người yêu tốt <span>✅</span></h2>
+
+            <div class="checklist-items">
+                <!-- Item 1: Can be checked -->
+                <label class="checklist-item" data-checkable="true">
+                    <input type="checkbox" class="checklist-checkbox" id="check1">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Nhớ sinh nhật bé Uyên</span>
+                    <span class="check-heart">💖</span>
+                </label>
+
+                <!-- Item 2: Can be checked -->
+                <label class="checklist-item" data-checkable="true">
+                    <input type="checkbox" class="checklist-checkbox" id="check2">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Thương bé Uyên</span>
+                    <span class="check-heart">💖</span>
+                </label>
+
+                <!-- Item 3: Cannot be checked (the joke) -->
+                <label class="checklist-item" data-checkable="false">
+                    <input type="checkbox" class="checklist-checkbox" id="check3">
+                    <span class="checkmark"></span>
+                    <span class="checklist-text">Luôn đúng trong mọi cuộc cãi nhau</span>
+                    <span class="check-heart">💖</span>
+                </label>
+            </div>
+
+            <!-- Funny message (hidden by default) -->
+            <p class="checklist-message" id="checklistMessage">Cái này thì anh xin thua 😭</p>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION 9: Final Romantic Section -->
+    <!-- ============================================ -->
+    <section id="final" class="final-section">
+        <!-- Stars background -->
+        <div class="stars-container" aria-hidden="true"></div>
+
+        <div class="final-content fade-in">
+            <div class="moon" aria-hidden="true"></div>
+
+            <h2 class="final-message">
+                No matter how old you get,<br>
+                I'll always love you.
+            </h2>
+
+            <p class="final-submessage">Happy Birthday, my forever love 🌙</p>
+
+            <!-- Optional music player -->
+            <div class="music-player">
+                <button class="music-btn" id="musicBtn" aria-label="Play romantic music">
+                    <span class="music-icon">🎵</span>
+                    <span class="music-text">Play Our Song</span>
+                </button>
+                <audio id="bgMusic" loop>
+                    <source src="music/song.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+
+        <!-- Floating elements -->
+        <div class="floating-elements" aria-hidden="true">
+            <span class="float-star">✨</span>
+            <span class="float-star">⭐</span>
+            <span class="float-star">✨</span>
+            <span class="float-heart">💕</span>
+            <span class="float-star">⭐</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with ❤️ just for you</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

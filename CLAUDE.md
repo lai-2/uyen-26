@@ -208,3 +208,72 @@ Closing section with emotional impact.
 * Make it romantic, playful, and memorable ❤️
 
 This website is a birthday gift, so prioritize **emotion and user experience** over technical complexity.
+
+### 💯 Extra Interactive Section – Love Meter
+
+Create a playful and cute interactive section called **"Love Meter"**.
+
+**Concept:**
+This section pretends to measure how much the girlfriend loves the user, but no matter what, the result is always 100%.
+
+**UI Requirements:**
+- Title text:
+  > "Mức độ bé Uyên yêu anh hôm nay là bao nhiêu? 💕"
+- A horizontal progress bar (0% → 100%)
+- A slider (range input) below the progress bar
+- Percentage text displayed above or inside the bar
+
+**Behavior:**
+- When the user drags the slider:
+  - The progress bar visually follows the slider value
+- When the user releases the slider (on mouseup / touchend):
+  - Animate the progress bar smoothly to **100%**
+  - Update the text to:
+    > "Ơ… hình như lúc nào cũng là 100% thì phải 😳"
+- Animation should feel soft and cute (ease-in-out)
+
+**Design Style:**
+- Rounded progress bar
+- Soft pink / pastel color
+- Heart icon or subtle sparkle effect when reaching 100%
+
+**Notes:**
+- This section should feel playful, not competitive
+- Focus on emotional impact and humor
+
+### ✅ Extra Fun Section – Good Boyfriend Checklist
+
+Create a fun and humorous checklist section titled:
+
+> "Checklist người yêu tốt ✅"
+
+**UI Requirements:**
+- A list of checkboxes with text labels
+- Use a handwritten or casual font if possible
+- Each item should have a small animation when checked
+
+**Checklist Items:**
+- [x] Nhớ sinh nhật bé Uyên
+- [x] Thương bé Uyên
+- [ ] Luôn đúng trong mọi cuộc cãi nhau
+
+**Behavior Rules:**
+- The first two checkboxes:
+  - Can be checked normally
+  - Show a small heart animation or color change when checked
+- The last checkbox:
+  - Must be **impossible to check**
+  - When the user tries to click it:
+    - Immediately uncheck (or prevent checking)
+    - Show a small text below the list:
+      > "Cái này thì anh xin thua 😭"
+    - Optional: shake animation on the checkbox or text
+
+**Design Style:**
+- Light, playful, romantic
+- Soft shadows and rounded corners
+- Avoid aggressive or loud animations
+
+**Notes:**
+- This section should feel self-aware and funny
+- The joke should land gently, not sarcastic
